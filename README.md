@@ -34,11 +34,6 @@ Under "SPONSORS ADD INFO HERE" heading below, include the following:
 # Contest prep
 
 ## 🐺 C4: Contest prep
-- [x] Rename this repo to reflect contest date (if applicable)
-- [x] Rename contest H1 below
-- [x] Add link to report form in contest details below
-- [x] Update pot sizes
-- [x] Fill in start and end times in contest bullets below.
 - [ ] Move any relevant information in "contest scope information" above to the bottom of this readme.
 - [ ] Add matching info to the [code423n4.com public contest data here](https://github.com/code-423n4/code423n4.com/blob/main/_data/contests/contests.csv))
 - [ ] Delete this checklist.
