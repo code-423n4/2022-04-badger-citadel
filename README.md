@@ -1,4 +1,5 @@
 # Badger Citadel contest details
+
 - $75,000 USDC main award pot
 - $3,750 USDC gas optimization award pot
 - Join [C4 Discord](https://discord.gg/code4rena) to register
@@ -8,7 +9,6 @@
 - Ends April 20, 2022 23:59 UTC
 
 
-# Citadel
 ![](./docs/images/citadel-knights.png)
 > Assemby of the Knights
 
@@ -80,7 +80,7 @@ An informal video offering a [summary of the system](https://drive.google.com/fi
 - [Oracles](./docs/oracles.md)
 - [Other](./docs/explainer.md)
 
-# Codearena: Audit Scope & Assumptions
+# Code4rena: Audit Scope & Assumptions
 - Assume all allocated role permissions are correct in the setup of the system.
     - e.g. holders of CONTRACT_GOVERNANCE_ROLE won't rug or set malicious permissions for other roles.
     - However, if roles can be set in an unintended manner, this is a very valid finding, 
