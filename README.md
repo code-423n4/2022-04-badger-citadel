@@ -1,64 +1,83 @@
-# ✨ So you want to sponsor a contest
+# Citadel
+![](./docs/images/citadel-knights.png)
+> Assemby of the Knights
 
-This `README.md` contains a set of checklists for our contest collaboration.
+The high-level concepts and progress updates can be found on [Medium](https://thecitadeldao.medium.com/).
 
-Your contest will use two repos: 
-- **a _contest_ repo** (this one), which is used for scoping your contest and for providing information to contestants (wardens)
-- **a _findings_ repo**, where issues are submitted. 
+An [informal video](https://drive.google.com/file/d/1hCzQrgZEsbd0t2mtuaXm7Cp3YS-ZIlw3/view?usp=sharing) offering a summary of the smart contracts.
 
-Ultimately, when we launch the contest, this contest repo will be made public and will contain the smart contracts to be reviewed and all the information needed for contest participants. The findings repo will be made public after the contest is over and your team has mitigated the identified issues.
 
-Some of the checklists in this doc are for **C4 (🐺)** and some of them are for **you as the contest sponsor (⭐️)**.
+# Getting Started
 
----
+## Prerequisites
 
-# Contest setup
+- [Foundry](https://github.com/gakonst/foundry)
+- [Node.js & NPM](https://nodejs.org/en/)
+- [NPX](https://www.npmjs.com/package/npx)
 
-## ⭐️ Sponsor: Provide contest details
+## Installation
 
-Under "SPONSORS ADD INFO HERE" heading below, include the following:
+Install and update submodules:
 
-- [ ] Name of each contract and:
-  - [ ] source lines of code (excluding blank lines and comments) in each
-  - [ ] external contracts called in each
-  - [ ] libraries used in each
-- [ ] Describe any novel or unique curve logic or mathematical models implemented in the contracts
-- [ ] Does the token conform to the ERC-20 standard? In what specific ways does it differ?
-- [ ] Describe anything else that adds any special logic that makes your approach unique
-- [ ] Identify any areas of specific concern in reviewing the code
-- [ ] Add all of the code to this repo that you want reviewed
-- [ ] Create a PR to this repo with the above changes.
+```console
+git submodule init
+git submodule update
+```
 
----
+## Installation
 
-# Contest prep
+Install hardhat dependencies:
 
-## 🐺 C4: Contest prep
-- [ ] Move any relevant information in "contest scope information" above to the bottom of this readme.
-- [ ] Add matching info to the [code423n4.com public contest data here](https://github.com/code-423n4/code423n4.com/blob/main/_data/contests/contests.csv))
-- [ ] Delete this checklist.
+```console
+npm install
+```
 
-## ⭐️ Sponsor: Contest prep
-- [ ] Make sure your code is thoroughly commented using the [NatSpec format](https://docs.soliditylang.org/en/v0.5.10/natspec-format.html#natspec-format).
-- [ ] Modify the bottom of this `README.md` file to describe how your code is supposed to work with links to any relevent documentation and any other criteria/details that the C4 Wardens should keep in mind when reviewing. ([Here's a well-constructed example.](https://github.com/code-423n4/2021-06-gro/blob/main/README.md))
-- [ ] Please have final versions of contracts and documentation added/updated in this repo **no less than 8 hours prior to contest start time.**
-- [ ] Ensure that you have access to the _findings_ repo where issues will be submitted.
-- [ ] Promote the contest on Twitter (optional: tag in relevant protocols, etc.)
-- [ ] Share it with your own communities (blog, Discord, Telegram, email newsletters, etc.)
-- [ ] Optional: pre-record a high-level overview of your protocol (not just specific smart contract functions). This saves wardens a lot of time wading through documentation.
-- [ ] Delete this checklist and all text above the line below when you're ready.
+## Compilation
 
----
+```
+forge build
+```
 
-# Badger Citadel contest details
-- $75,000 USDC main award pot
-- $3,750 USDC gas optimization award pot
-- Join [C4 Discord](https://discord.gg/code4rena) to register
-- Submit findings [using the C4 form](https://code4rena.com/contests/2022-04-badger-citadel-contest/submit)
-- [Read our guidelines for more details](https://docs.code4rena.com/roles/wardens)
-- Starts April 14, 2022 00:00 UTC
-- Ends April 20, 2022 23:59 UTC
+## Tests
 
-This repo will be made public before the start of the contest. (C4 delete this line when made public)
+Because the tests interact with mainnet contracts, tests must be run in mainnet fork mode.
 
-[ ⭐️ SPONSORS ADD INFO HERE ]
+```
+forge test --fork-url <mainnet-rpc-url>
+```
+
+> ⚠️ Some tests are currently failing, they are under active development
+
+## Hardhat deploy
+
+Hardhat Ganace is more reliable than ganache itself for UI testing so we provide an integration with hardhat as well.
+This will be run the deploy script on default network, but don't be shy to use other hardhat options for it
+
+```
+npx hardhat run scripts/deploy-local.js
+```
+
+# System Overview
+An informal video offering a [summary of the system](https://drive.google.com/file/d/1hCzQrgZEsbd0t2mtuaXm7Cp3YS-ZIlw3/view?usp=sharing).
+
+# Contract / Subsystem Overviews
+- [Access Control](./docs/access-control.md)
+- [Citadel Token](./docs/citadel-token.md)
+- [Staked Citadel](./docs/staked-citadel.md)
+- [Locked Citadel](./docs/locked-citadel.md)
+- [Emissions and Distribution](./docs/emissions.md)
+- [Knighting Round](./docs/knighting-round.md)
+- [Oracles](./docs/oracles.md)
+- [Other](./docs/explainer.md)
+
+# Codearena: Audit Scope & Assumptions
+- Assume all allocated role permissions are correct in the setup of the system.
+    - e.g. holders of CONTRACT_GOVERNANCE_ROLE won't rug or set malicious permissions for other roles.
+    - However, if roles can be set in an unintended manner, this is a very valid finding, 
+
+    See [BaseFixture.sol](./test/BaseFixture.sol) for how the system components are wired together in practice.
+
+## What's in scope?
+* All (non-test) contracts in this repo.
+* The [modified convex locker](https://github.com/Citadel-DAO/staked-citadel-locker/blob/main/src/StakedCitadelLocker.sol) from our staked-citadel-locker repo.
+* The [MedianOracle](https://github.com/ampleforth/market-oracle/blob/master/contracts/MedianOracle.sol) from ampleforth.

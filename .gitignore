@@ -102,3 +102,20 @@ dist
 
 # TernJS port file
 .tern-port
+
+
+.DS_STORE
+__pycache__
+.history
+.hypothesis/
+build/
+reports/
+.env
+artifacts/
+
+node_modules/
+hh-cache/
+
+# foundry
+cache/
+out/
