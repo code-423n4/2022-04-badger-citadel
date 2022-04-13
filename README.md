@@ -1,4 +1,5 @@
 # Badger Citadel contest details
+
 - $75,000 USDC main award pot
 - $3,750 USDC gas optimization award pot
 - Join [C4 Discord](https://discord.gg/code4rena) to register
@@ -8,7 +9,6 @@
 - Ends April 20, 2022 23:59 UTC
 
 
-# Citadel
 ![](./docs/images/citadel-knights.png)
 > Assemby of the Knights
 
