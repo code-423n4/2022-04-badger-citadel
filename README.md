@@ -71,21 +71,21 @@ npx hardhat run scripts/deploy-local.js
 An informal video offering a [summary of the system](https://drive.google.com/file/d/1hCzQrgZEsbd0t2mtuaXm7Cp3YS-ZIlw3/view?usp=sharing).
 
 # Contract / Subsystem Overviews
-- [Access Control](./docs/access-control.md)
-- [Citadel Token](./docs/citadel-token.md)
-- [Staked Citadel](./docs/staked-citadel.md)
-- [Locked Citadel](./docs/locked-citadel.md)
-- [Emissions and Distribution](./docs/emissions.md)
-- [Knighting Round](./docs/knighting-round.md)
-- [Oracles](./docs/oracles.md)
-- [Other](./docs/explainer.md)
+- [Access Control](https://github.com/code-423n4/2022-04-badger-citadel/blob/main/docs/access-control.md)
+- [Citadel Token](https://github.com/code-423n4/2022-04-badger-citadel/blob/main/docs/citadel-token.md)
+- [Staked Citadel](https://github.com/code-423n4/2022-04-badger-citadel/blob/main/docs/staked-citadel.md)
+- [Locked Citadel](https://github.com/code-423n4/2022-04-badger-citadel/blob/main/docs/locked-citadel.md)
+- [Emissions and Distribution](https://github.com/code-423n4/2022-04-badger-citadel/blob/main/docs/emissions.md)
+- [Knighting Round](https://github.com/code-423n4/2022-04-badger-citadel/blob/main/docs/knighting-round.md)
+- [Oracles](https://github.com/code-423n4/2022-04-badger-citadel/blob/main/docs/oracles.md)
+- [Other](https://github.com/code-423n4/2022-04-badger-citadel/blob/main/docs/explainer.md)
 
 # Code4rena: Audit Scope & Assumptions
 - Assume all allocated role permissions are correct in the setup of the system.
     - e.g. holders of CONTRACT_GOVERNANCE_ROLE won't rug or set malicious permissions for other roles.
     - However, if roles can be set in an unintended manner, this is a very valid finding, 
 
-    See [BaseFixture.sol](./src/test/BaseFixture.sol) for how the system components are wired together in practice.
+    See [BaseFixture.sol](https://github.com/code-423n4/2022-04-badger-citadel/blob/main/src/test/BaseFixture.sol) for how the system components are wired together in practice.
 
 ## What's in scope?
 * All (non-test) contracts in this repo.
