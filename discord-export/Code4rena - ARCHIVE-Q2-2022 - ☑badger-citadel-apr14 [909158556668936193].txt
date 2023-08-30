@@ -1,0 +1,296 @@
+==============================================================
+Guild: Code4rena
+Channel: ARCHIVE-Q2-2022 / ☑badger-citadel-apr14
+==============================================================
+
+[11/13/2021 10:40 PM] nine_k (pinned)
+👋 Hello and welcome to the contest channel for the **$30K USDC BadgerDAO Zaps** contest!
+
+📆 Contest opens November 14, 2021 at 0:00 UTC (in about ~1 hour!) and runs through November 16, 2021 at 23:59 UTC (3 days).
+
+Please give a warm welcome to the BadgerDAO team -- and specifically @Alex The Entreprenerd and @tabish.eth -- who will be available during the contest to answer questions either here in channel or via DM. 
+
+We'll be posting relevant links, documentation, etc. here, so if you intend to participate in this contest, you might want to enable notifications. 🐺 ⏰
+
+{Reactions}
+🌩️ (5) 🦡 (2) 
+
+[11/14/2021 2:34 AM] nine_k
+we’re live!! good luck! https://github.com/code-423n4/2021-11-badgerzaps
+
+{Embed}
+https://github.com/code-423n4/2021-11-badgerzaps
+GitHub - code-423n4/2021-11-badgerzaps
+Contribute to code-423n4/2021-11-badgerzaps development by creating an account on GitHub.
+Code4rena - ARCHIVE-Q2-2022 - ☑badger-citadel-apr14 [909158556668936193].txt_Files/2021-11-badgerzaps-CC2A2
+
+
+[11/15/2021 5:35 PM] ye0lde
+Just to be clear is the scope just : ibBTC Zap.sol,  VaultZap.sol,  DepositZapibBTC.vy (not CurveZap.vy),  SettToRenIbbtcZap.sol.
+
+
+[11/15/2021 6:59 PM] tabish.eth
+correct
+
+
+[11/17/2021 12:11 AM] itsmetechjay
+@🐺wardens The **BadgerDAO Zaps** contest is now closed! Huge thanks to everyone who participated 🔍, whether you submitted a finding or not.
+
+What's next: the BadgerDAO team will review the findings over the next couple of days, and then we'll pass them off to the judge. Keep an eye on #📢announcements for regular updates on how the contest is progressing through judging 🧑‍⚖️ and reporting 📜. Feel free to ping an organizer if you have questions along the way!
+
+{Reactions}
+hi5 thankyou 
+
+[02/02/2022 9:39 PM] itsmetechjay
+👋 Hello and welcome to the contest channel for the $30K USDC **Badger Citadel** contest!
+
+📆 Contest opens February 4, 2022 at 0:00 UTC and runs through February 6, 2022 at 23:59 UTC (3 days).
+
+Please give a warm welcome back to the Badger team -- specifically @tabish.eth and @shuklaayush -- who will be available during the contest to answer questions either here in channel or via DM. 
+
+We'll be posting relevant links, documentation, etc. here, so if you intend to participate in this contest, you might want to enable notifications. 🐺 ⏰
+
+{Reactions}
+🥳 (3) 
+
+[02/04/2022 3:37 AM] hickuphh3
+nice to see Foundry being used! FYI the `testSetTokenInLimit()` test is failing because of a wrong order. function call should be done after event emission.
+
+```
+uint256 newTokenInLimit = 100 * 10**tokenIn.decimals();
+      
+vm.expectEmit(false, false, false, true);
+emit TokenInLimitUpdated(newTokenInLimit);
+tokenSale.setTokenInLimit(newTokenInLimit);
+
+assertEq(newTokenInLimit, tokenSale.tokenInLimit());
+```
+
+{Reactions}
+👀 (2) 
+
+[02/04/2022 3:38 AM] csanuragjain
+Is VipGuestListUpgradeable.sol under utils folder in scope?
+
+
+[02/04/2022 1:45 PM] madarfadar
+Nice catch. Weird that the test passes on our ci
+
+
+[02/04/2022 2:33 PM] tabish.eth
+no
+
+{Reactions}
+👍 
+
+[02/04/2022 6:17 PM] 0x1f8b
+@tabish.eth could you define the scope ? it's only `TokenSaleUpgradeable.sol`?
+
+
+[02/04/2022 6:48 PM] tabish.eth
+Yes the scope is only TokenSaleUpgradeable.sol
+
+{Reactions}
+👍 
+
+[02/05/2022 1:14 AM] Tom | Aztec#3331
+@tabish.eth Could you give some info on what type of proxy you're expecting `TokenSaleUpgradeable.sol` to be behind?
+
+
+[02/05/2022 1:14 AM] Tom | Aztec#3331
+I'm expecting this sale to be a one off, correct?
+
+
+[02/05/2022 7:50 AM] tabish.eth
+yes it would be a one off sale, we are expecting to put it behind `TransparentUpgradeableProxy`
+
+{Reactions}
+thankyou 
+
+[02/05/2022 9:38 PM] ospwner#2746
+@tabish.eth what is the planned use case of "daoCommitments" and dao ids. I mean are you going to use them in a web UI or other contracts, what kind of commitments they represent? I couldn't infere much because the contract only stores ids and amounts.
+
+
+[02/06/2022 8:06 AM] tabish.eth
+In the web ui a user would be given an option to select a dao when buying into the token sale. so daoCommitments would represent total number of votes (ie. total CTDL token brought by users and give vote to a dao). based on that a % of CTDL token would be given to the DAO
+
+{Reactions}
+thankyou 
+
+[02/06/2022 4:56 PM] oridabush
+where should we submit the low and non critical report (and gas optimizations)?
+
+
+[02/07/2022 12:02 AM] C4
+**🚨 CONTEST ALERT**
+
+@🐺wardens The **Badger Citadel** contest is now closed! Huge thanks to everyone who participated🔍, whether you submitted a finding or not.
+
+What's next: the **Badger** team will review the findings over the next couple of days, and then we'll pass them off to the judge. Keep an eye on #📢announcements for regular updates on how the contest is progressing through awarding 🤑🏆, judging 🧑‍⚖️ and reporting 📜. Feel free to ping an organizer if you have questions along the way!
+
+{Reactions}
+C4Keycap (5) 🐺 (4) 
+
+[02/07/2022 5:20 PM] eldadp100#5849
+As one submission
+
+
+[04/12/2022 1:50 PM] kartoonjoy
+👋 Hello and welcome back to the contest channel for the **$75K USDC Badger Citadel** contest!
+
+📆 Contest opens April 14, 2022 at 0:00 UTC and runs through April 20, 2022 at 23:59 UTC (7 days).
+
+Please give a warm welcome to the Badger Citadel team, particularly @dapp_whisperer, who will be available for questions either here in the channel or via DM.
+
+We'll be posting relevant links, documentation, etc. here, so if you intend to participate in this contest, consider enabling notifications for this channel. 🐺 ⏰
+
+Contest Page: https://code4rena.com/contests/2022-04-badger-citadel-contest
+
+{Embed}
+https://code4rena.com/contests/2022-04-badger-citadel-contest
+Code4rena Badger Citadel contest
+$75,000 USDC
+14 April 2022—20 April 2022
+Code4rena - ARCHIVE-Q2-2022 - ☑badger-citadel-apr14 [909158556668936193].txt_Files/C4-banner-7C19B.png
+
+
+[04/14/2022 12:02 AM] dapp_whisperer
+hi everyone
+
+
+[04/14/2022 12:03 AM] dapp_whisperer
+excited to see the findings - feel free to message me any questions around the codebase
+
+{Reactions}
+👍 (7) 
+
+[04/14/2022 2:51 AM] pedroais
+medianOracle.sol is empty
+
+
+[04/14/2022 3:01 AM] ellahi
+https://github.com/code-423n4/2022-04-badger-citadel/blob/main/src/oracles/MedianOracle.sol
+
+
+[04/14/2022 3:01 AM] ellahi
+Empty indeed
+
+
+[04/14/2022 3:01 AM] ellahi
+@dapp_whisperer
+
+
+[04/14/2022 10:15 AM] p_crypt0
+The MedianOracle.sol on the github is empty, but presumed it's just copy/pasted from ampleforth's?  (https://github.com/ampleforth/market-oracle/blob/master/contracts/MedianOracle.sol - link from the c4a page)?
+
+{Embed}
+https://github.com/ampleforth/market-oracle/blob/master/contracts/MedianOracle.sol
+market-oracle/MedianOracle.sol at master · ampleforth/market-oracle
+Set of smart contracts on Ethereum deal with exchange rate reporting and aggregation - market-oracle/MedianOracle.sol at master · ampleforth/market-oracle
+Code4rena - ARCHIVE-Q2-2022 - ☑badger-citadel-apr14 [909158556668936193].txt_Files/market-oracle-C7D22
+
+
+[04/14/2022 10:15 AM] illilli000
+when you say all contracts, does that mean all of these too? https://github.com/code-423n4/2022-04-badger-citadel/tree/main/lib
+
+
+[04/14/2022 10:23 AM] p_crypt0
+Also, the "BaseFixture.sol" link on c4a takes me back to c4a homescreen - link needs changing to reflect github repo?
+
+{Attachments}
+Code4rena - ARCHIVE-Q2-2022 - ☑badger-citadel-apr14 [909158556668936193].txt_Files/unknown-0BABC.png
+
+
+[04/14/2022 11:00 AM] dapp_whisperer
+Yes, it can be assumed to be the median oracle from that repo. It has to live in its own repo due to complier version / dependency management in Foundry
+
+{Reactions}
+❤️ 
+
+[04/14/2022 11:00 AM] dapp_whisperer
+That file shouldn’t be in the repo, that was an oversight on my part
+
+
+[04/14/2022 11:01 AM] dapp_whisperer
+No, those are dependency files. The ones used in the project can be considered in terms of their usage in the project files in /src
+
+
+[04/14/2022 11:01 AM] dapp_whisperer
+I’ll clarify on readme
+
+
+[04/14/2022 11:02 AM] dapp_whisperer
+I’ll take a look, thanks. The BaseFixture.sol can be found in /src/tests/
+
+{Reactions}
+❤️ 
+
+[04/14/2022 11:42 AM] p_crypt0
+Thank you! If it's any help, the others on the c4a page are also redirecting to homepage. Think the hyperlink setting is just appending the path to the "'https:code4rena.com'"  as opposed to the github repo
+
+
+[04/14/2022 4:26 PM] liveactionllamac4
+Those links should be directing correctly now. 🙂
+
+
+[04/14/2022 4:32 PM] p_crypt0
+Yep they are, thank you Llama-san!
+
+{Reactions}
+hi5 (2) 😂 (2) 
+
+[04/14/2022 7:38 PM] liveactionllamac4
+Pinned a message.
+
+
+[04/18/2022 9:16 PM] illilli000
+will the issues from the prior badger citadel contest be made available before the end of this contest? KnightingRound.sol seems to be similar to the sole contract of that contest
+
+
+[04/19/2022 3:19 AM] m9800
+@dapp_whisperer can i dm?
+
+
+[04/19/2022 3:29 PM] csanuragjain
++1 i also have same question
+
+
+[04/19/2022 3:40 PM] dapp_whisperer
+it's very similar, yes
+
+
+[04/21/2022 12:02 AM] C4
+**🚨 CONTEST ALERT**
+
+@🐺wardens The Badger contest is now closed! Huge thanks to everyone who participated 🔍, whether you submitted a finding or not.
+
+What's next: the Badger team will review the findings over the next couple of days, and then we'll pass them off to the judge. Keep an eye on #📢announcements for regular updates on how the contest is progressing through awarding 🤑🏆, judging 🧑‍⚖️ and reporting 📜. Feel free to ping a contest admin if you have questions along the way!
+
+{Reactions}
+🎉 (2) 
+
+[05/11/2022 11:16 AM] p_crypt0
+Did I earn even 1 usdc from this? I'm excited, but also so afraid to see the awarding results🥲
+
+
+[05/19/2022 9:21 AM] ilan#2680
+Hi, any updates on this one?
+
+
+[05/19/2022 9:28 AM] z3s#5837
+According to the Monday Roll Up it's still in the sponsor review phase.
+
+{Reactions}
+thankyou 
+
+[06/08/2022 5:43 PM] bearprince
+what's the status on this one?
+
+
+[06/08/2022 6:36 PM] liveactionllamac4
+Hi! It looks like judging could be finishing up soon and then it'll go back to the sponsor for a QA review. If there's not much for the judge and sponsor to discuss, I think this could potentially move to awarding sometime next week. 🤞
+
+
+==============================================================
+Exported 49 message(s)
+==============================================================
